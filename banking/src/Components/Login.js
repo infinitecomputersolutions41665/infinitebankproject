@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const usid = useRef(null);
+  const usid = useRef(null)
   const Password = useRef(null);
   const [userType, setUserType] = useState(null);
   const [selectedTab, setSelectedTab] = useState(null);
