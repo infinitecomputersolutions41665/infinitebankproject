@@ -490,6 +490,7 @@ CREATE procedure [dbo].[delsavacc](@saccid int)
  begin try
  begin transaction
  if exists( select 1 from savings where balanceamt =0 and Saccid = @saccid)  
+	if exists( select 1 from loan where status = 0 and  cid = (select cid  from savings where saccid = @saccid))
  update Customer set Status = 0 where cid = (select cid  from savings where saccid = @saccid)
  commit
  return 1
