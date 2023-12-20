@@ -75,9 +75,12 @@ namespace BankApplication.Controllers
         {
             try
             {
-                var sourceAccount = customers.savings.FirstOrDefault(c => c.Saccid == dsavccid);
+                var sourceAccount = customers.savings.FirstOrDefault(c => c.Saccid == dsavccid);                
+                var accountstatus = customers.customer.FirstOrDefault(c=>c.cid == sourceAccount.Cid);
+                var endAccount = customers.savings.FirstOrDefault(c => c.Saccid ==trans.saccid );
+                var Endaccountstatus = customers.customer.FirstOrDefault(c=>c.cid == endAccount.Cid);
 
-                if (sourceAccount != null && trans.saccid!=null)
+                if (sourceAccount != null && trans.saccid!=null && accountstatus == true  && Endaccountstatus == true  )
                 {
                     if (sourceAccount.balanceamt > trans.transamt)
                     {
