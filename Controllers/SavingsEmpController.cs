@@ -11,7 +11,7 @@ namespace BankApplication.Controllers
         bankContext emps = new bankContext();
 
         [HttpPost]
-        [Route("api/emplogin")]
+        [Route("api/firsttimelogin")]
         public async Task<ActionResult> emplogin(emplogin login)
         {
             try
