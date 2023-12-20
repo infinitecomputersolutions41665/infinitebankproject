@@ -426,14 +426,13 @@ CREATE procedure [dbo].[addsavingacc]
 @salary float,                                    --to check the criteria for loan
 @Userid varchar(10) ,                                 -- to login
 @Password varchar(10),                             -- to login
-@Status bit,
-@balanceamount float)
+@Status bit)
 as 
 begin
 begin try
 begin transaction
 insert into Customer values (@CFirstname,@CLastname,@Phone,@DOB,@PAN,@salary,@Userid,@Password,@Status)
-insert into savings values (SCOPE_IDENTITY(),@balanceamount)
+insert into savings values (SCOPE_IDENTITY(),0)
 commit
 return 1
 end try
