@@ -46,12 +46,7 @@ namespace BankApplication.Controllers
         {
             try
             {
-
-                cust.savings = new List<savings> { new savings() { balanceamt = 0 } };
-                var re = (from t in cust.savings
-                          select t).FirstOrDefault();
-                double? balanacamount = re.balanceamt;
-
+            
                 var res = mngr.Procedures.addsavingaccAsync(cust.CFirstname, cust.CLastname, cust.Phone, cust.DOB, cust.PAN, cust.salary, cust.Userid, cust.Password, true, balanacamount);
 
 
